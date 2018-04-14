@@ -1,0 +1,36 @@
+In nonMaximumSuppression(), I previously set neighboring pixels to zero because I thought since they werent
+local maximum compared to center they were not edges. This was wrong because I was supposed to only turn off
+the center pixel if it was not the local maximum
+
+profGaussian is off by a small amount, if the size of mask >
+5 the edges of the array are 0 (inner 5 differ) by the same amount each time
+
+The value is 0.000005
+The value is 0.000705
+The value is 0.003683
+The value is 0.000705
+The value is 0.000005
+
+Gy, Gx causes huge change in picture, seeing more white
+Note: possibly use sobel to find edges
+
+-This whole section in my code was causing problems
+if ((y + 1 < height and x + 1 < width) and (y - 1 >= 0 and x - 1 >= 0)):
+if (y + 1 < height and y - 1 >= 0):
+if (y + 1 < height and y - 1 >= 0):
+if ((y + 1 < height and x + 1 < width) and (y - 1 >= 0 and x - 1 >= 0)):
+if (x + 1 < width and x - 1 >= 0):
+
+Error noticed... -0
+
+Histogram data was correct but display was wrong. fixed by using cv2 and numpy
+functions
+
+I calculated pt incorrectly, I corrected it by calculating it independent of A or B
+
+corrected convolution, before it was using "count" and dividing for some reason so I used the slides
+to implement box filtering or averaging
+
+used np.array instead of image load. I was getting error "Integer too large" with type pixelmodifier
+
+In QEED I corrected  the "on" "off" value from on being 1 to on being 255
